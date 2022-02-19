@@ -4,9 +4,93 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="assets/index.css">
 </head>
 <body>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <div id="main-section">
+        <div class="container date">
+            <div class="row birth-date">
+                <span><h4 class="text-center">Date of birth</h4></span>
+                <div class="col">
+                    <label for="birth-year"> Birth Year
+                    <div class="input-group mb-3">
+                        <input type="text" id="birth-year" class="form-control" aria-label="type your birth year" aria-describedby="inputGroup-sizing-default" placeholder="Type your birth year">
+                        </div>
+                    </label>
+                </div>
+                <div class="col">
+                <label for="birth-month">Birth Month</label>
+                <select name="" id="birth-month" class="form-select" aria-label="select your birth month">
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+                </div>
+                <div class="col">
+                <label for="birth-month">Birth Day</label>
+                <select name="" id="birth-month" class="form-select" aria-label="select your birth day">
+                    <option value="1">1</option>
+                </select>
+                </div>
+                
+            </div>
+            <div class="row to-date">
+                <span><h4 class="text-center">Age at the date of</h4></span>
+                <div class="col">
+                    <label for="birth-year"> Year
+                    <div class="input-group mb-3">
+                        <input type="text" id="birth-year" class="form-control" aria-label="type your birth year" aria-describedby="inputGroup-sizing-default" placeholder="Type your birth year">
+                        </div>
+                    </label>
+                </div>
+                <div class="col">
+                <label for="birth-month">Month</label>
+                <select name="" id="birth-month" class="form-select" aria-label="select your birth month">
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+                </div>
+                <div class="col">
+                <label for="birth-month">Day</label>
+                <select name="" id="birth-month" class="form-select" aria-label="select your birth day">
+                    <option value="1">1</option>
+                </select>
+                </div>
+                
+            </div>
+            <div class="row buttons">
+                <div class="col d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="button" class="btn btn-success">Calculate</button>
+                    <button type="button" class="btn btn-warning">Reset</button>
+                </div>
+            </div>
+            <div class="row buttons">
+                <span><h4 class="text-center">Age result:</h4></span>
+                
+            </div>
+        </div>
+    </div>
 </body>
 </html>

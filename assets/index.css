@@ -1,0 +1,12 @@
+body{
+    background-color: #C2D3CD;
+}
+#main-section{
+    margin: auto;
+    width: 50%;
+    height: auto;
+    background-color: #6667AB;
+    margin-top: 50px;
+    padding: 30px;
+    color: #04080F;
+}
