@@ -153,4 +153,52 @@ window.onload = ()=> {
         resetValues("all");
         birthYear.focus();
     });
+
+    //Calculates the age
+    document.getElementById("calculate-btn").addEventListener("click", (e) => {
+        
+        let calculateAge = [birthYear.value, Number(birthMonth.value), Number(birthDay.value), toYear.value, Number(toMonth.value), Number(toDay.value)];
+
+        for(let a = 0; a < 6; a++){
+            if(calculateAge[a] !== ""){
+                if(a === 5){
+                    e.preventDefault();
+                    const oneYear = 12;
+                    let ageDay = 0;
+                    let ageMonth = ((oneYear - calculateAge[1]) + calculateAge[4]) - 1;
+                    let ageYear = 0;
+
+                    //calculation for days
+                    if(calculateAge[2] === calculateAge[5]){
+                        ageMonth++;
+                        ageDay = 0;
+                    } else if(calculateAge[2] > calculateAge[5]){
+                        ageDay = calculateAge[5];
+                    } else {
+                        ageDay = calculateAge[5] - calculateAge[2];
+                        ageMonth++;
+                    }
+                    //calculation for months
+                    if(ageMonth === 12){
+                        ageMonth = 0;
+                        ageYear++;
+                    } else if(ageMonth > 12){
+                        ageMonth -= 12;
+                        ageYear++;
+                    }
+                    ageYear = calculateAge[3] - calculateAge[0] - 1;
+                    //let convertMonth = (ageYear * 12) + (ageDays)--continue here: 1 month = 30.4167
+                    let monthWord = (ageMonth > 1) ? "months" : "month";
+                    let dayWord = (ageDay > 1) ? "days" : "day";
+                    document.querySelector(".age-result").innerHTML = `You are ${ageYear} years, ${ageMonth} ${monthWord}, and ${ageDay} ${dayWord} old.`;
+                    
+                }
+            } else {
+                break;
+            }
+        }
+        
+        
+        
+    });
 };
