@@ -10,3 +10,7 @@ body{
     padding: 30px;
     color: #04080F;
 }
+.convert-result {
+    line-height: 1.6;
+    font-size: 1em;
+}

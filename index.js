@@ -9,20 +9,23 @@ window.onload = ()=> {
 
     // The function below calculates if the year is a leap year(true) or not(false)
     let calculateLeap = (birthYear) => {
-        if(birthYear % 4 === 0){
-            if(birthYear % 100 === 0){
-                if(birthYear % 400 === 0){
-                    return true;
+        if(birthYear !== ""){
+            if(birthYear % 4 === 0){
+                if(birthYear % 100 === 0){
+                    if(birthYear % 400 === 0){
+                        return true;
+                    } else {
+                        return false;
+                    }
                 } else {
-                    return false;
+                    return true;
                 }
             } else {
-                return true;
+                return false;
             }
         } else {
-            return false;
+            return true;
         }
-
     }
 
     // The function below finds the days based on the Month and Year; and, it changes the birth day select element
@@ -60,6 +63,7 @@ window.onload = ()=> {
             newOption.innerHTML = i;
             day.appendChild(newOption);
         }
+        
     }
 
     let resetValues = (option) => {
@@ -117,6 +121,8 @@ window.onload = ()=> {
                 tDay.appendChild(tOption);
                 break;
         }
+        document.querySelector(".age-result").innerHTML = ""
+        document.querySelector(".convert-result").innerHTML = "";
     }
     //Upon change of year it disables the birtmonth element or if already not disabled calls the days function
     birthYear.addEventListener("change", (e) => {
@@ -187,11 +193,30 @@ window.onload = ()=> {
                         ageYear++;
                     }
                     ageYear = calculateAge[3] - calculateAge[0] - 1;
-                    //let convertMonth = (ageYear * 12) + (ageDays)--continue here: 1 month = 30.4167
-                    let monthWord = (ageMonth > 1) ? "months" : "month";
-                    let dayWord = (ageDay > 1) ? "days" : "day";
-                    document.querySelector(".age-result").innerHTML = `You are ${ageYear} years, ${ageMonth} ${monthWord}, and ${ageDay} ${dayWord} old.`;
                     
+                    //Adding "s" for more than 1 y/m/d
+                    let getWord = (calculatedAge, word) => {
+                        return (calculatedAge > 1) ? `${calculatedAge} ${word}s`: `${calculatedAge} ${word}`;
+                    }
+                    //Output the calculated age
+                    document.querySelector(".age-result").innerHTML = `You are ${getWord(ageYear, "year")}, ${getWord(ageMonth, "month")}, and ${getWord(ageDay, "day")} old.`;
+
+                    //Convert calculated age to y/m/d
+                    const daysInMonth = 30.4167;
+                    let convertResult = document.querySelector(".convert-result");
+                    
+                    let convertWords = (convertedValue, ) => {
+                        return (convertedValue > 1) ? "s" : "";
+                    }
+                    //convert to years
+                    let convertToYear = ((((ageDay / daysInMonth) + ageMonth) / 12) + ageYear).toFixed(2);
+                    convertResult.innerHTML = `Age in Year${convertWords(convertToYear)} =  ${convertToYear}`;
+                    //convert to months
+                    let convertToMonth = ((ageYear * 12) + ageMonth + (ageDay / daysInMonth)).toFixed(2);
+                    convertResult.innerHTML = convertResult.innerHTML + `<br>Age in Month${convertWords(convertToMonth)} = ${convertToMonth}`;
+                    //convert to days
+                    let convertToDay = (((ageYear * 12) * daysInMonth)+ (ageMonth * daysInMonth) + ageDay).toFixed(2);
+                    convertResult.innerHTML = convertResult.innerHTML + `<br>Age in Day${convertWords(convertToMonth)} = ${convertToDay}`;
                 }
             } else {
                 break;
