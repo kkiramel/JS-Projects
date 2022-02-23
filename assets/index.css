@@ -1,16 +1,82 @@
 body{
-    background-color: #C2D3CD;
+    width: auto;
+    height: 100%;
 }
 #main-section{
-    margin: auto;
-    width: 50%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    background-color: #faa8ba;
+}
+#main-title{
+    position: absolute;
+    display: inherit;
+    align-items: center;
+    width: 100%;
     height: auto;
-    background-color: #6667AB;
-    margin-top: 50px;
     padding: 30px;
+    margin-bottom: 0;
+}
+#main-title h2{
+    width: 100%;
+    text-align: center;
+}
+.container{
+    position: relative;
+    max-width: 46%;
+    height: 70%;
+    padding: 30px;
+    border-width: 0.5em;
+    border-style: solid;
+    border-color: #FFFFFF;
+    border-radius: 1em;
+    background-color: #faa8df;
+    margin: auto;
+}
+.date{
+    background-color: #6667AB;
     color: #04080F;
 }
 .convert-result {
     line-height: 1.6;
     font-size: 1em;
+}
+.trivia-image{
+    position: relative;
+    display: block;
+    width: auto;
+    height: auto;
+    background-color: #d8d9f1;
+}
+#personImage{
+    display: block;
+    max-width: 50%;
+    margin: 10px auto 10px auto;
+    height: auto;
+    border-radius: 25px 25px 0 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.trivia-image figcaption{
+    height: 20%;
+    width: 100%;
+    background-color: #ec2793;
+}
+.trivia-text{
+    display: inherit;
+    align-items:flex-end;
+    background-color: #6667AB;
+    width: 100%;
+    height: auto;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5em;
+    line-height: 1em;
+}
+.quote-text{
+    text-align: center;
+}
+.quote-author{
+    text-align: right;
 }

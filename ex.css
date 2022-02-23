@@ -1,0 +1,43 @@
+body{
+    width: auto;
+    height: 100%;
+}
+#main-section{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+.container{
+    position: relative;
+    width: 50%;
+    padding: 30px;
+    border-width: 20px;
+    border-style: solid;
+    border-color: #000000;
+    border-radius: 1em;
+    
+}
+.date{
+    background-color: #6667AB;
+    color: #04080F;
+}
+.trivia{
+
+    display:flex;
+    align-items: center;
+    text-align: center;
+}
+.trivia-text{
+    width: 100%;
+    text-align: center;
+    background-color: #6667AB;
+}
+.convert-result {
+    line-height: 1.6;
+    font-size: 1em;
+}

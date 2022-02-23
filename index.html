@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet"> 
     <title>Age Calculator</title>
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="index.js"></script>
     <div id="main-section">
-        <div class="container date">
+        <div id="main-title"><h2>Age Calculator</h2></div>
+        <div class="container container-age date col">
             <form>
                 <div class="row birth-date">
                     <span><h4 class="text-left">Date of birth</h4></span>
@@ -98,6 +102,16 @@
             <div class="row">
                 <h3 class="result age-result text-center"></h3>
                 <p class="result convert-result"></p>
+            </div>
+        </div>
+        <div class="container trivia row">
+            <div class="trivia-image">
+                <img src="assets/taeyeon.jpg" alt="Kim Taeyeon" id="personImage">
+                <figcaption>Name Name</figcaption>
+            </div>
+            <div class="trivia-text">
+                <p class="quote quote-text">“The purpose of our lives is to be happy.”</p>
+                <p class="quote quote-author">- Dalai Lama</p>
             </div>
         </div>
     </div>
