@@ -7,6 +7,8 @@ window.onload = ()=> {
     let toMonth = document.getElementById("to-month");
     let toDay = document.getElementById("to-day");
 
+    let calculateBtn = document.getElementById("calculate-btn");
+    let triviaTitle = document.getElementById("trivia-title");
     // The function below calculates if the year is a leap year(true) or not(false)
     let calculateLeap = (birthYear) => {
         if(birthYear !== ""){
@@ -104,7 +106,6 @@ window.onload = ()=> {
                 
                 let aMonth = document.getElementsByClassName("month");
                 for(let b = 0; b < aMonth.length; b++){
-                    aMonth[b].disabled = true;
                     aMonth[b].selectedIndex = 0;
                 }
 
@@ -114,16 +115,35 @@ window.onload = ()=> {
                 bOption.innerHTML = "Select your birth day";
                 bDay.appendChild(bOption);
 
-                tDay.disabled = true;
-                tDay.innerHTML = "";
-                tOption.value = "";
-                tOption.innerHTML = "Select the day";
-                tDay.appendChild(tOption);
+                nowDate();
                 break;
         }
         document.querySelector(".age-result").innerHTML = ""
         document.querySelector(".convert-result").innerHTML = "";
+        triviaTitle.innerHTML = "";
+        calculateBtn.disabled = true;
+
     }
+
+    let getMonthText = (monthValue) => {
+        let monthArr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        return monthArr[monthValue - 1];
+    }
+    //Adds the current date into to-date
+    let nowDate = () => {
+        let now = new Date();
+        let nowYear = now.getFullYear();
+        let nowMonth = now.getMonth() + 1;
+        let nowDay = now.getDate();
+
+        toYear.value = nowYear;
+        toMonth.value = nowMonth;
+        toMonth.disabled = false;
+        days(nowMonth, calculateLeap(nowYear), "to-day");
+        toDay.selectedIndex = nowDay;
+        toDay.disabled = false;
+    }
+    nowDate();
     //Upon change of year it disables the birtmonth element or if already not disabled calls the days function
     birthYear.addEventListener("change", (e) => {
         if(e.target.value === ""){
@@ -154,6 +174,9 @@ window.onload = ()=> {
         days(toMonth.value, calculateLeap(toYear.value), "to-day");
     });
 
+    birthDay.addEventListener("change", (e) => {
+        calculateBtn.disabled = false;
+    });
     //Resets all the values
     document.getElementById("reset-btn").addEventListener("click", () => {
         resetValues("all");
@@ -161,9 +184,9 @@ window.onload = ()=> {
     });
 
     //Calculates the age
-    document.getElementById("calculate-btn").addEventListener("click", (e) => {
+    calculateBtn.addEventListener("click", (e) => {
         
-        let calculateAge = [birthYear.value, Number(birthMonth.value), Number(birthDay.value), toYear.value, Number(toMonth.value), Number(toDay.value)];
+        let calculateAge = [Number(birthYear.value), Number(birthMonth.value), Number(birthDay.value), toYear.value, Number(toMonth.value), Number(toDay.value)];
 
         for(let a = 0; a < 6; a++){
             if(calculateAge[a] !== ""){
@@ -172,7 +195,7 @@ window.onload = ()=> {
                     const oneYear = 12;
                     let ageDay = 0;
                     let ageMonth = ((oneYear - calculateAge[1]) + calculateAge[4]) - 1;
-                    let ageYear = 0;
+                    let ageYear = -1;
 
                     //calculation for days
                     if(calculateAge[2] === calculateAge[5]){
@@ -192,7 +215,9 @@ window.onload = ()=> {
                         ageMonth -= 12;
                         ageYear++;
                     }
-                    ageYear = calculateAge[3] - calculateAge[0] - 1;
+
+                    //Calculation for years
+                    ageYear =  ageYear + (calculateAge[3] - calculateAge[0]);
                     
                     //Adding "s" for more than 1 y/m/d
                     let getWord = (calculatedAge, word) => {
@@ -217,6 +242,7 @@ window.onload = ()=> {
                     //convert to days
                     let convertToDay = (((ageYear * 12) * daysInMonth)+ (ageMonth * daysInMonth) + ageDay).toFixed(2);
                     convertResult.innerHTML = convertResult.innerHTML + `<br>Age in Day${convertWords(convertToMonth)} = ${convertToDay}`;
+                    triviaTitle.innerHTML = `On ${getMonthText(birthMonth.value)} ${birthDay.value}`;
                 }
             } else {
                 break;

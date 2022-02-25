@@ -8,7 +8,9 @@ body{
     justify-content: space-between;
     width: 100%;
     height: 100%;
-    background-color: #faa8ba;
+    
+    background-image: linear-gradient(to bottom right, rgba(24, 35, 124,1), rgba(247, 215, 233,1));
+    color: #d8d7f7;
 }
 #main-title{
     position: absolute;
@@ -30,53 +32,73 @@ body{
     padding: 30px;
     border-width: 0.5em;
     border-style: solid;
-    border-color: #FFFFFF;
+    border-color: #d8d7f7;
     border-radius: 1em;
-    background-color: #faa8df;
     margin: auto;
+    box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .date{
-    background-color: #6667AB;
-    color: #04080F;
+    background-color: #523f90;
 }
 .convert-result {
     line-height: 1.6;
     font-size: 1em;
 }
-.trivia-image{
+.trivia {
+    background-color: #6768ab;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+.trivia-content{
     position: relative;
     display: block;
-    width: auto;
-    height: auto;
-    background-color: #d8d9f1;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+#trivia-title{
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5em;
+    height: 12%;
+}
+.trivia-image{
+    height: 68%;
 }
 #personImage{
     display: block;
     max-width: 50%;
     margin: 10px auto 10px auto;
     height: auto;
+    max-height: 65%;
     border-radius: 25px 25px 0 0;
+    border-color: #18237c;
+    border-style: solid;
+    border-width: 0.3em;
     background-repeat: no-repeat;
     background-size: contain;
 }
 .trivia-image figcaption{
-    height: 20%;
+    height: auto;
     width: 100%;
-    background-color: #ec2793;
+    text-align: center;
+    font-size: 1.5em;
+}
+#image-description{
+    height: auto;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
 }
 .trivia-text{
-    display: inherit;
+    display: flex;
     align-items:flex-end;
+    height: 20%;
     background-color: #6667AB;
-    width: 100%;
-    height: auto;
     font-family: 'Great Vibes', cursive;
     font-size: 2.5em;
     line-height: 1em;
+    padding: 0;
 }
-.quote-text{
-    text-align: center;
-}
-.quote-author{
-    text-align: right;
-}
+
