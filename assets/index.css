@@ -68,10 +68,9 @@ body{
 }
 #personImage{
     display: block;
-    max-width: 50%;
+    max-width: auto;
     margin: 10px auto 10px auto;
-    height: auto;
-    max-height: 65%;
+    height: 60%;
     border-radius: 25px 25px 0 0;
     border-color: #18237c;
     border-style: solid;
